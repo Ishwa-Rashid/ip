@@ -52,6 +52,7 @@ body {
     padding-left: 15px;
     font-size: 16px;
     outline: none;
+    font-weight: 500;
     
 }
 .container input::placeholder {
@@ -173,7 +174,7 @@ body {
     .title {
         margin: 0;
         font-weight: 400;
-        font-size: 28px;
+        font-size: 24px;
         color: white;
         padding-top: 10px;
         padding-bottom: 15px;
@@ -184,17 +185,17 @@ body {
     align-items: center;
     justify-content: center;
     top: 125px;
-    min-width: 360px;
    }
    .results div {
     border: none;
    }
    .search-bar input {
-    min-width: 300px;
+    min-width: 230px;
     height: 40px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
-    font-size: 16px;
+    font-size: 13px;
+    font-weight: 500;
 
    }
 
