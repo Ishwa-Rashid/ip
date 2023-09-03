@@ -38,7 +38,7 @@ fetch(ipUrl)
         .then((results) => {
   
         currentIp.innerHTML = results.ip;
-        currentTown.innerHTML = results.city + ", " + results.region + " " + results.city;
+        currentTown.innerHTML = results.city + ", " + results.region + " " + results.country;
         currentZone.innerHTML = "UTC" + results.utc_offset;
         currentIsp.innerHTML = results.org;
         
