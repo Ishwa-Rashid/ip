@@ -22,18 +22,17 @@
   integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
   crossorigin=""></script>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
 
 </head>
 
 <body>
 
   <!-- Title and Search -->
-  <div class="container">
+  <div class="container cover-background">
     <h1 class="title">IP Address Tracker</h1>
     <div class="search-bar">
       <input id="ip_address" type="text" placeholder="Search for any IP address or domain">
-      <button id="search_btn" type="submit">
+      <button id="search_btn" type="submit" class="btn">
         <img src="images/icon-arrow.svg" alt="">
       </button>
     </div>
@@ -42,30 +41,30 @@
   <!-- Results -->
   <div class="results">
 
-    <div>
+    <div class="border">
       <p>IP Address</p>
       <h1 id="current_ip">192.212.174.101</h1>
     </div>
 
     <div class="border">
       <p>Location</p>
-      <h1 id="current_town">Cape Town, SA 7530</h1>
+      <h1 id="current_town">Rosemead, California, US</h1>
     </div>
-    
+
     <div class="border">
       <p>Timezone</p>
-      <h1 id="current_zone">UTC +2:00</h1>
+      <h1 id="current_zone">UTC -07:00</h1>
     </div>
 
     <div class="last-child">
       <p>ISP</p>
-      <h1 id="current_isp">Rain</h1>
+      <h1 id="current_isp">SCE</h1>
     </div>
   </div>
 
   <div id="map"></div>
 
-  <div class="attribution">
+  <div class="attribution cover-background">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="https://github.com/Ishwa-Rashid">Ishwa</a>.
   </div>

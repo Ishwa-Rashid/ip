@@ -7,21 +7,35 @@ var currentTown = document.querySelector("#current_town");
 var currentZone = document.querySelector("#current_zone");
 var currentIsp = document.querySelector("#current_isp");
 
+// `https://api.ipgeolocation.io/ipgeo?apiKey=${API_KEY}=`
 
+submitBtn.addEventListener("click", function(){
 
-submitBtn.addEventListener("click", action);
+    submitBtn.classList.add("clicked");
+    setTimeout(function(){
+        submitBtn.classList.remove("clicked");
+    },200);
+    action();
+});
 
 ipAddress.addEventListener("keypress", function(event){
     if(event.key === "Enter"){
+        submitBtn.classList.add("clicked");
+        setTimeout(function(){
+            submitBtn.classList.remove("clicked");
+        },200);
         action();
     }
 });
 
-var map = L.map('map').setView([51.505, -0.09], 13);
+// Initial Display
+var map = L.map('map').setView([34.0648, -118.086], 13);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
+
+// User's Location
 
 var ipUrl = "https://geo.ipify.org/api/v2/country?apiKey=" +apiKey;
 
@@ -30,6 +44,8 @@ fetch(ipUrl)
     .then((response) => {
 
         var ipAddressValue = response.ip;
+        var timezone = response.location.timezone;
+        var isp = response.isp;
         
         var url = "https://ipapi.co/" + ipAddressValue + "/json/";
 
@@ -38,9 +54,9 @@ fetch(ipUrl)
         .then((results) => {
   
         currentIp.innerHTML = results.ip;
-        currentTown.innerHTML = results.city + ", " + results.region + " " + results.country;
-        currentZone.innerHTML = "UTC" + results.utc_offset;
-        currentIsp.innerHTML = results.org;
+        currentTown.innerHTML = results.city + ", " + results.region + ", " + results.country;
+        currentZone.innerHTML = "UTC " + timezone;
+        currentIsp.innerHTML = isp;
         
         lat = results.latitude;
         lng = results.longitude;
@@ -80,7 +96,7 @@ function action(){
     .then((response) => {
         currentIp.innerHTML = response.ip;
         currentTown.innerHTML = response.city + ", " + response.region + ", " + response.country;
-        currentZone.innerHTML = "UTC" + response.utc_offset;
+        currentZone.innerHTML = "UTC " + response.utc_offset;
         currentIsp.innerHTML = response.org;
 
         var lat = response.latitude;
